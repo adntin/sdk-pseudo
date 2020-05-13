@@ -1,0 +1,19 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "overrides": [
+    {
+      "files": "src/**",
+      "options": {
+        "printWidth": 120
+      }
+    },
+    {
+      "files": "**/locales/**",
+      "options": {
+        "printWidth": 300
+      }
+    }
+  ]
+}
