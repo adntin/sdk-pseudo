@@ -1,20 +1,7 @@
-import { useState, useEffect } from 'react';
-import DeviceService from '../lib/DeviceService';
+import useDeviceList from './useDeviceList';
 
 const DeviceList = () => {
-  const [devices, setDevices] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      // todo service.house.find
-      const localDevices = await DeviceService.getInstance().find({}, (remoteDevices) => {
-        setDevices(remoteDevices);
-        // sync global store data, e.g. dispatch()
-      });
-      setDevices(localDevices);
-    };
-    fetchData();
-  }, []);
+  const devices = useDeviceList();
 
   return devices.length === 0 ? (
     <div>loading...</div>

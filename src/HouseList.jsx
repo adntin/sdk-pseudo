@@ -1,23 +1,8 @@
-import { useState, useEffect } from 'react';
-import HouseService from '../lib/HouseService';
-// import Service from '../lib/Service';
+import useHouseList from './useHouseList';
 
 const HouseList = () => {
-  const [houses, setHouses] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      // todo service.house.find
-      const localHouses = await HouseService.getInstance().find({}, (remoteHouses) => {
-        setHouses(remoteHouses);
-        // sync global store data, e.g. dispatch()
-      });
-      setHouses(localHouses);
-    };
-    fetchData();
-  }, []);
-
-  return houses.length === 0 ? (
+  const houses = useHouseList();
+  return houses.length === 0 || remote === false ? (
     <div>loading...</div>
   ) : (
     <ul>
