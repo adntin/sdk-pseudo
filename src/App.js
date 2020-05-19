@@ -5,13 +5,11 @@ import register from './service.register';
 // import database from '../lib/database';
 // import logger from '../lib/logger';
 
-const ContextGlobalStore = createContext({});
-
 const service = new Service();
 service.init({ register });
 
 const App = () => {
-  return <ContextGlobalStore.Provider value={{}}>App</ContextGlobalStore.Provider>;
+  return <div>App</div>;
 };
 
 export default App;

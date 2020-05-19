@@ -7,7 +7,7 @@ const useHouseList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const localHouses = await HouseService.getInstance().find({}, (error, data) => {
-        // 注意: 缓存优先此回调函数才有意义
+        // 注意: 缓存优先(CacheFirst)此回调函数才有意义
         if (!error) {
           dispatch({ type: 'FRESH_HOUSE_LIST_SUCCESS', payload: data }); // sync global store data
         }
